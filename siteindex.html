@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu Jogo Escolar</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #a3d5f7, #d6ecfc);
+      background-repeat: no-repeat;
+      background-size: cover;
+      text-align: center;
+      color: #333;
+      padding: 20px;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    .star {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 0 6px white;
+    }
+    .star:nth-child(1) { top: 10%; left: 15%; }
+    .star:nth-child(2) { top: 20%; right: 10%; }
+    .star:nth-child(3) { bottom: 15%; left: 25%; }
+    .star:nth-child(4) { bottom: 10%; right: 20%; }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 90%;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      font-size: 28px;
+      color: #ff6f61;
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-size: 16px;
+      margin-bottom: 24px;
+      line-height: 1.4;
+    }
+
+    .quiz {
+      margin: 20px 0;
+      text-align: left;
+    }
+
+    .quiz h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .option {
+      background-color: #f2f2f2;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .option:hover {
+      background-color: #e0e0e0;
+    }
+
+    .correct {
+      background-color: #c8e6c9 !important; /* verde claro */
+    }
+
+    .incorrect {
+      background-color: #ffcdd2 !important; /* vermelho claro */
+    }
+
+    .download-text {
+      font-size: 16px;
+      margin: 24px 0 12px;
+    }
+
+    a.download-button {
+      display: inline-block;
+      padding: 12px 20px;
+      background-color: #4CAF50;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    a.download-button:hover {
+      background-color: #45a049;
+    }
+
+    @media (min-width: 600px) {
+      h1 { font-size: 36px; }
+      p, .download-text { font-size: 18px; }
+      a.download-button { font-size: 18px; padding: 14px 28px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+
+  <div class="container">
+    <h1>PYSIQUEST: EXPLORANDO A FÍSICA SUSTENTÁVEL</h1>
+    <p>Bem-vindo ao nosso jogo criado para a Feira de Ciências!</p>
+
+    <div class="quiz">
+      <h2>🧠 Qual é a fórmula da energia?</h2>
+      <div class="option" onclick="verificar(this, true)">A) E = mc²</div>
+      <div class="option" onclick="verificar(this, false)">B) F = ma</div>
+      <div class="option" onclick="verificar(this, false)">C) V = d/t</div>
+    </div>
+
+    <p class="download-text">Clique no botão abaixo para baixar e jogar.</p>
+    <a class="download-button" href="https://drive.google.com/file/d/1lFMebkFMna01Dfh2gH7Z-T65vSSTIxYi/view?usp=drivesdk" download>📥 Baixar Jogo</a>
+  </div>
+
+  <script>
+    function verificar(elemento, correto) {
+      const todas = document.querySelectorAll('.option');
+      todas.forEach(op => {
+        op.classList.remove('correct', 'incorrect');
+        op.style.pointerEvents = 'none'; // desativa cliques após resposta
+      });
+      if (correto) {
+        elemento.classList.add('correct');
+      } else {
+        elemento.classList.add('incorrect');
+      }
+    }
+  </script>
+</body>
+</html>
